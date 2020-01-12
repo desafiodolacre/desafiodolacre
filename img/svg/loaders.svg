@@ -36,7 +36,7 @@
          id="path7117">
          <animateTransform 
          attributeName="transform" 
-         dur="1s" 
+         dur="0.5" 
          type="translate" 
          values="0 30 ; 0 -30; 0 30" 
          repeatCount="indefinite" 
@@ -53,7 +53,7 @@
          >
          <animateTransform 
          attributeName="transform" 
-         dur="1s" 
+         dur="0.5" 
          type="translate" 
          values="0 20 ; 0 -20; 0 20" 
          repeatCount="indefinite" 
@@ -70,7 +70,7 @@
          id="path7133">
          <animateTransform 
          attributeName="transform" 
-         dur="1s" 
+         dur="0.5" 
          type="translate" 
          values="0 10 ; 0 -10; 0 10" 
          repeatCount="indefinite" 
