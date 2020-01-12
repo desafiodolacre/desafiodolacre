@@ -1628,7 +1628,7 @@
 
     switch (element.nodeName) {
       case 'HTML':
-      case 'BODY':
+      case 'body':
         return element.ownerDocument.body;
       case '#document':
         return element.body;
@@ -1691,7 +1691,7 @@
 
     var nodeName = offsetParent && offsetParent.nodeName;
 
-    if (!nodeName || nodeName === 'BODY' || nodeName === 'HTML') {
+    if (!nodeName || nodeName === 'body' || nodeName === 'HTML') {
       return element ? element.ownerDocument.documentElement : document.documentElement;
     }
 
@@ -1707,7 +1707,7 @@
   function isOffsetContainer(element) {
     var nodeName = element.nodeName;
 
-    if (nodeName === 'BODY') {
+    if (nodeName === 'body') {
       return false;
     }
     return nodeName === 'HTML' || getOffsetParent(element.firstElementChild) === element;
@@ -1786,7 +1786,7 @@
     var upperSide = side === 'top' ? 'scrollTop' : 'scrollLeft';
     var nodeName = element.nodeName;
 
-    if (nodeName === 'BODY' || nodeName === 'HTML') {
+    if (nodeName === 'body' || nodeName === 'HTML') {
       var html = element.ownerDocument.documentElement;
       var scrollingElement = element.ownerDocument.scrollingElement || html;
       return scrollingElement[upperSide];
@@ -2021,7 +2021,7 @@
       offsets.marginLeft = marginLeft;
     }
 
-    if (isIE10 && !fixedPosition ? parent.contains(scrollParent) : parent === scrollParent && scrollParent.nodeName !== 'BODY') {
+    if (isIE10 && !fixedPosition ? parent.contains(scrollParent) : parent === scrollParent && scrollParent.nodeName !== 'body') {
       offsets = includeScroll(offsets, parent);
     }
 
@@ -2059,7 +2059,7 @@
    */
   function isFixed(element) {
     var nodeName = element.nodeName;
-    if (nodeName === 'BODY' || nodeName === 'HTML') {
+    if (nodeName === 'body' || nodeName === 'HTML') {
       return false;
     }
     if (getStyleComputedProperty(element, 'position') === 'fixed') {
@@ -2115,7 +2115,7 @@
       var boundariesNode = void 0;
       if (boundariesElement === 'scrollParent') {
         boundariesNode = getScrollParent(getParentNode(reference));
-        if (boundariesNode.nodeName === 'BODY') {
+        if (boundariesNode.nodeName === 'body') {
           boundariesNode = popper.ownerDocument.documentElement;
         }
       } else if (boundariesElement === 'window') {
@@ -2514,11 +2514,11 @@
   }
 
   function attachToScrollParents(scrollParent, event, callback, scrollParents) {
-    var isBody = scrollParent.nodeName === 'BODY';
-    var target = isBody ? scrollParent.ownerDocument.defaultView : scrollParent;
+    var isbody = scrollParent.nodeName === 'body';
+    var target = isbody ? scrollParent.ownerDocument.defaultView : scrollParent;
     target.addEventListener(event, callback, { passive: true });
 
-    if (!isBody) {
+    if (!isbody) {
       attachToScrollParents(getScrollParent(target.parentNode), event, callback, scrollParents);
     }
     scrollParents.push(target);
@@ -4656,7 +4656,7 @@
       this._dialog = element.querySelector(Selector$5.DIALOG);
       this._backdrop = null;
       this._isShown = false;
-      this._isBodyOverflowing = false;
+      this._isbodyOverflowing = false;
       this._ignoreBackdropClick = false;
       this._isTransitioning = false;
       this._scrollbarWidth = 0;
@@ -4779,7 +4779,7 @@
       this._dialog = null;
       this._backdrop = null;
       this._isShown = null;
-      this._isBodyOverflowing = null;
+      this._isbodyOverflowing = null;
       this._ignoreBackdropClick = null;
       this._isTransitioning = null;
       this._scrollbarWidth = null;
@@ -4991,11 +4991,11 @@
     _proto._adjustDialog = function _adjustDialog() {
       var isModalOverflowing = this._element.scrollHeight > document.documentElement.clientHeight;
 
-      if (!this._isBodyOverflowing && isModalOverflowing) {
+      if (!this._isbodyOverflowing && isModalOverflowing) {
         this._element.style.paddingLeft = this._scrollbarWidth + "px";
       }
 
-      if (this._isBodyOverflowing && !isModalOverflowing) {
+      if (this._isbodyOverflowing && !isModalOverflowing) {
         this._element.style.paddingRight = this._scrollbarWidth + "px";
       }
     };
@@ -5007,14 +5007,14 @@
 
     _proto._checkScrollbar = function _checkScrollbar() {
       var rect = document.body.getBoundingClientRect();
-      this._isBodyOverflowing = rect.left + rect.right < window.innerWidth;
+      this._isbodyOverflowing = rect.left + rect.right < window.innerWidth;
       this._scrollbarWidth = this._getScrollbarWidth();
     };
 
     _proto._setScrollbar = function _setScrollbar() {
       var _this9 = this;
 
-      if (this._isBodyOverflowing) {
+      if (this._isbodyOverflowing) {
         // Note: DOMNode.style.paddingRight returns the actual value or '' if not set
         //   while $(DOMNode).css('padding-right') returns the calculated value or 0 if not set
         var fixedContent = [].slice.call(document.querySelectorAll(Selector$5.FIXED_CONTENT));
@@ -6087,7 +6087,7 @@
       var _this = this;
 
       this._element = element;
-      this._scrollElement = element.tagName === 'BODY' ? window : element;
+      this._scrollElement = element.tagName === 'body' ? window : element;
       this._config = this._getConfig(config);
       this._selector = this._config.target + " " + Selector$8.NAV_LINKS + "," + (this._config.target + " " + Selector$8.LIST_ITEMS + ",") + (this._config.target + " " + Selector$8.DROPDOWN_ITEMS);
       this._offsets = [];
