@@ -1,0 +1,40 @@
+BEGIN:VCALENDAR
+PRODID:-//Google Inc//Google Calendar 70.9054//EN
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:REQUEST
+BEGIN:VEVENT
+DTSTART:20200114T133000Z
+DTEND:20200114T143000Z
+DTSTAMP:20200113T190052Z
+ORGANIZER;CN=beatriz.ereno@ezdevs.com.br:mailto:beatriz.ereno@ezdevs.com.br
+UID:45knut675s849pgf287n16qpup@google.com
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=
+ TRUE;CN=wellington.santana@ezdevs.com.br;X-NUM-GUESTS=0:mailto:wellington.s
+ antana@ezdevs.com.br
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;RSVP=TRUE
+ ;CN=beatriz.ereno@ezdevs.com.br;X-NUM-GUESTS=0:mailto:beatriz.ereno@ezdevs.
+ com.br
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=
+ TRUE;CN=denny.erikson@gmail.com;X-NUM-GUESTS=0:mailto:denny.erikson@gmail.c
+ om
+X-MICROSOFT-CDO-OWNERAPPTID:1346552249
+CREATED:20200113T190051Z
+DESCRIPTION:-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~
+ :~:~:~:~:~:~:~:~::~:~::-\nNão edite esta seção da descrição.\n\nEste evento
+  tem uma videochamada.\nParticipar: https://meet.google.com/yrr-ufdm-ots\n+
+ 55 11 4933-9105 PIN: 149974611#\nVer mais números de telefone: https://tel.
+ meet/yrr-ufdm-ots?pin=7149805938018&hs=7\n\nVisualize o seu evento em https
+ ://www.google.com/calendar/event?action=VIEW&eid=NDVrbnV0Njc1czg0OXBnZjI4N2
+ 4xNnFwdXAgZGVubnkuZXJpa3NvbkBt&tok=MjcjYmVhdHJpei5lcmVub0BlemRldnMuY29tLmJy
+ ZmEwNzRkNDhlZTZhZjkxMDFhZjQwZWFkZGVkYTI5ODExNTMxY2YxMg&ctz=America%2FSao_Pa
+ ulo&hl=pt_BR&es=1.\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~
+ :~:~:~:~:~:~:~:~:~:~:~:~::~:~::-
+LAST-MODIFIED:20200113T190051Z
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Entrevista - Denny Erikson
+TRANSP:OPAQUE
+END:VEVENT
+END:VCALENDAR
