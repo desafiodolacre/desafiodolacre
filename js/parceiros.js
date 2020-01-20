@@ -1,7 +1,7 @@
 
 $.getJSON("parceiros.json", function(json){
     json.map(getParceiros).forEach(function(item){
-        item = item.split("-");
+        item = item.split("|");
 
     });
 });
@@ -9,7 +9,7 @@ $.getJSON("parceiros.json", function(json){
 function getParceiros(item){
     return [
         item.img, item.nome, item.instagram, item.point
-    ].join("-")
+    ].join("|")
 }
 
 
@@ -20,7 +20,7 @@ window.addEventListener('load',function(){
 
     $.getJSON("parceiros.json", function(json){
         json.map(getParceiros).forEach(function(item){
-            item = item.split("-");
+            item = item.split("|");
             if(item[0] != "default"){
                 Create(item); 
             } 
@@ -32,7 +32,7 @@ window.addEventListener('load',function(){
             var cont = 6 - json.length + 1;
             
             item = getParceiros(json[0]);
-            item = item.split("-");
+            item = item.split("|");
             for(i=1; i<=cont;i++){
                 Create(item);
             }
@@ -44,7 +44,7 @@ window.addEventListener('load',function(){
     function getParceiros(item){
         return [
             item.img, item.nome, item.point, item.instagram, item.facebook
-        ].join("-")
+        ].join("|")
     }
 
 
@@ -68,13 +68,21 @@ window.addEventListener('load',function(){
         div_a.style = "margin: 10px 0";
         img.style="width:100%";
 
-        if(parceiro[0]=='default'){
-            img.style = 'opacity: 0.3; filter: alpha(opacity=30);width:100%;'
-        }
-
         i_insta.className = 'fa fa-instagram';
         i_point.className = 'fa fa-map-marker';
         i_face.className = 'fa fa-facebook';
+
+        if(parceiro[0]=='default'){
+            img.style = 'opacity: 0.3; filter: alpha(opacity=30);width:100%;'
+            a_point.onclick = toast;
+            a_insta.onclick = toast;
+            a_face.onclick = toast;
+            a_point.className += " js-scroll-trigger";
+            a_insta.className += " js-scroll-trigger";
+            a_face.className += " js-scroll-trigger";
+        }
+
+
 
         // set data
         img.src = './img/parceiros/'+parceiro[0]+'.jpeg';
@@ -87,8 +95,9 @@ window.addEventListener('load',function(){
         a_insta.href = parceiro[3];
         a_insta.appendChild(i_insta);
 
-        a_face.href = parceiro[4];
+        a_face.href = String(parceiro[4]);
         a_face.appendChild(i_face);
+        
 
 
         // add na DOM 
@@ -104,3 +113,14 @@ window.addEventListener('load',function(){
     }
     
 });
+
+function toast() {
+    // Get the snackbar DIV
+    var x = document.getElementById("snackbar");
+  
+    // Add the "show" class to DIV
+    x.className = "show";
+  
+    // After 3 seconds, remove the show class from DIV
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+  }
