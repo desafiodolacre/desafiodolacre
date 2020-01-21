@@ -62,26 +62,28 @@ window.addEventListener('load',function(){
         a_face = document.createElement('a');
         i_face = document.createElement('i');
         br = document.createElement('br');
+        button = document.createElement('a');
+        
         // styles 
         div_col.className = "col-lg-4 col-sm-6";
         div.className = 'card';
         div_a.style = "margin: 10px 0";
         img.style="width:100%";
-
+        // fas fa-fas fa-4x text-primary mb-3 sr-icon-1
         i_insta.className = 'fa fa-instagram';
         i_point.className = 'fa fa-map-marker';
         i_face.className = 'fa fa-facebook';
+        button.className = "btn btn-secondary";
 
         if(parceiro[0]=='default'){
             img.style = 'opacity: 0.3; filter: alpha(opacity=30);width:100%;'
-            a_point.onclick = toast;
-            a_insta.onclick = toast;
-            a_face.onclick = toast;
-            a_point.className += " js-scroll-trigger";
-            a_insta.className += " js-scroll-trigger";
-            a_face.className += " js-scroll-trigger";
+            text_button = document.createTextNode('Click, para saber mais!');
+            button.appendChild(text_button);
+            button.onclick = toast;
+            button.href = '#contact';
+            button.style = 'font-size:18px; color:#FFF;'
+            div_a.appendChild(button);
         }
-
 
 
         // set data
@@ -103,9 +105,11 @@ window.addEventListener('load',function(){
         // add na DOM 
         div.appendChild(img);
         div.appendChild(h2_nome);
-        div_a.appendChild(a_point);
-        div_a.appendChild(a_insta);
-        div_a.appendChild(a_face);
+        if(parceiro[0]!="default"){
+            div_a.appendChild(a_point);
+            div_a.appendChild(a_insta);
+            div_a.appendChild(a_face);
+        }
         div.appendChild(div_a);
         div_col.appendChild(div);
         div_parceiro.appendChild(div_col);
